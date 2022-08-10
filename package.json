@@ -1,0 +1,27 @@
+{
+  "name": "proclaim-games",
+  "version": "1.0.0",
+  "description": "Web based games for Proclaim",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "uglifyjs ./src/js/app.js -mc -o ./src/js/app.min.js && concat ./node_modules/phaser/dist/phaser.min.js ./src/js/app.min.js -o ./build/assets/js/app.min.js",
+    "watch": "npm run build && concurrently 'npm start' 'npm-watch'"
+  },
+  "author": "Chris Sham",
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "concat": "^1.0.3",
+    "concurrently": "^7.3.0",
+    "express": "^4.18.1",
+    "npm-watch": "^0.11.0",
+    "uglify-js": "^3.16.3"
+  },
+  "watch": {
+    "build": "./src/js/app.js"
+  }
+}
